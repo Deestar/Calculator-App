@@ -1,0 +1,424 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+:root {
+  --border: 2px solid red;
+}
+body {
+  /* border: var(--border); */
+  box-sizing: border-box;
+  display: grid;
+  height: 100vh;
+  max-width: 100vw;
+  place-content: center;
+  background: linear-gradient(to bottom, red 5%, rgb(208, 88, 208));
+  background-repeat: no-repeat;
+  background-size: cover;
+  animation: bck_change 30s alternate ease infinite;
+  overflow: hidden;
+}
+
+.calc_body {
+  /* border: var(--border); */
+  width: min(80%, 300px);
+  display: grid;
+  grid-template-rows: 0.5fr 2fr 4fr;
+
+  gap: 4px;
+  /* margin: 20px;
+  margin-left: 60px; */
+  justify-self: center;
+  height: min(64vh, 600px);
+  border-radius: 10px;
+  box-shadow: 1px 3px 10px 5px black;
+  background-color: white;
+  z-index: 300;
+}
+
+.bck_change_cont {
+  display: grid;
+  place-content: center;
+  /* border: 2px solid blue; */
+  height: 30px;
+  justify-content: end;
+  padding: 10px;
+}
+
+#bck_change {
+  /* border: 2px solid red; */
+  background-color: rgb(32, 29, 29);
+  width: 30px;
+  height: 30px;
+  margin-top: 5px;
+  margin-right: 2px;
+  border-radius: 50%;
+}
+
+.display {
+  border: none;
+  resize: none;
+  width: 100%;
+  height: 75px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  text-align: right;
+  padding-top: 40px;
+  font-size: 30px;
+  font-family: arial;
+  overflow: scroll;
+}
+/* Removes the scroll function on number inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+input:focus {
+  outline: none;
+}
+.operator {
+  display: grid;
+  column-gap: 10px;
+  row-gap: 4px;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    "a b c d"
+    " e f g h"
+    " i j k l"
+    "m n o p"
+    " q r s p";
+  padding-top: 10px;
+  /* border: 2px solid red; */
+}
+
+button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: none;
+  background-color: rgba(5, 247, 255, 0.4);
+  display: grid;
+  place-content: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+button:hover {
+  background-color: rgba(17, 162, 53, 0.4);
+  cursor: pointer;
+}
+#calc {
+  grid-area: p;
+  height: 100px;
+  border-radius: 30px;
+  background-color: rgba(0, 247, 255, 0.4);
+  color: black;
+}
+#calc:hover {
+  background-color: rgb(57, 156, 161);
+}
+
+#clear {
+  background-color: rgba(230, 30, 30, 0.4);
+  color: red;
+}
+#clear:hover {
+  background-color: rgba(170, 67, 67, 0.4);
+}
+.oper_tor {
+  color: red;
+  background-color: rgba(229, 232, 235, 0.25);
+  /* background: transparent; */
+  font-size: 20px;
+}
+
+#history {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: none;
+  background: none;
+  background-color: rgba(255, 136, 0, 0.544);
+  display: grid;
+  place-content: center;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+#history:hover {
+  background-color: rgba(214, 131, 36, 0.544);
+  cursor: pointer;
+}
+
+.anim1 {
+  width: 120px;
+  height: 120px;
+  border: 1px solid rgba(250, 248, 248, 0.2);
+  box-shadow: 3px 1px 20px 1px rgba(254, 251, 251, 0.2);
+  transform: translate(-200px, -300px);
+  background-color: rgba(253, 253, 253, 0.1);
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  animation: updown1 20s alternate-reverse infinite ease-in-out;
+}
+
+.anim2 {
+  width: 70px;
+  height: 70px;
+  border: 1px solid rgba(250, 248, 248, 0.2);
+  transform: translate(-200px, -400px);
+  box-shadow: 3px 1px 20px 1px rgba(254, 251, 251, 0.2);
+  background-color: rgba(253, 253, 253, 0.2);
+  border-radius: 10px;
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  animation: updown2 25s alternate infinite ease-in-out;
+}
+.anim3 {
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  top: 170px;
+  right: 800px;
+  border: 1px solid rgba(250, 248, 248, 0.2);
+  margin-right: 170px;
+  transform: translate(-10px, -530px);
+  box-shadow: 3px 1px 20px 1px rgba(254, 251, 251, 0.2);
+  background-color: rgba(253, 253, 253, 0.3);
+  border-radius: 10px;
+  transform-style: preserve-3d;
+  perspective: 100px;
+  z-index: 500;
+  animation: updown3 25s alternate infinite ease-in-out;
+}
+
+.anim4 {
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(250, 248, 248, 0.2);
+  transform: translate(320px, -550px);
+  box-shadow: 3px 1px 20px 1px rgba(254, 251, 251, 0.2);
+  background-color: rgba(253, 253, 253, 0.3);
+  border-radius: 10px;
+  animation: updown4 25s alternate infinite ease-in-out;
+}
+@keyframes updown1 {
+  from {
+    transform: translate(-200px, -210px);
+  }
+  to {
+    transform: translate(-200px, -340px);
+  }
+}
+
+@keyframes updown2 {
+  from {
+    transform: translate(-200px, -210px);
+  }
+  to {
+    transform: translate(-200px, -400px);
+  }
+}
+
+@keyframes updown3 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes updown4 {
+  from {
+    transform: translate(305px, -550px);
+  }
+  to {
+    transform: translate(340px, -550px);
+  }
+}
+
+@keyframes bck_change {
+  0% {
+    background: linear-gradient(to bottom, blue 5%, rgb(208, 88, 208));
+  }
+  20% {
+    background: linear-gradient(to bottom, red 5%, rgb(53, 69, 162));
+  }
+  40% {
+    background: linear-gradient(to bottom, green 5%, rgb(44, 124, 171));
+  }
+  60% {
+    background: linear-gradient(to bottom, pink 5%, rgb(30, 143, 98));
+  }
+  80% {
+    background: linear-gradient(
+      to bottom,
+      rgb(0, 221, 255) 5%,
+      rgb(177, 177, 44)
+    );
+  }
+  100% {
+    background: linear-gradient(
+      to bottom,
+      rgb(0, 255, 98) 5%,
+      rgb(158, 117, 22)
+    );
+  }
+}
+/* Not more than (at-most 563 px) wont apply to heights higher than 563px */
+@media (max-height: 563px) {
+  .display {
+    height: 60px;
+    font-size: 20px;
+  }
+  button {
+    height: 30px;
+  }
+  .calc_body {
+    height: min(68vh, 600px);
+  }
+  #calc {
+    height: 80px;
+  }
+  #history {
+    height: 40px;
+  }
+}
+
+@media (max-height: 590px) {
+  .display {
+    height: 60px;
+    font-size: 15px;
+    padding-top: 30px;
+  }
+  button {
+    height: 35px;
+  }
+  #calc {
+    height: 60px;
+  }
+  #history {
+    height: 30px;
+  }
+}
+@media (max-height: 462px) {
+  .display {
+    height: 60px;
+    font-size: 15px;
+    padding-top: 30px;
+  }
+  button {
+    height: 26px;
+  }
+  #calc {
+    height: 60px;
+  }
+  #history {
+    height: 30px;
+  }
+}
+@media (max-height: 409px) {
+  .calc_body {
+    overflow: scroll;
+  }
+  #history {
+    height: 30px;
+  }
+}
+@media (max-width: 415px) {
+  #bck_change {
+    width: 30px;
+    height: 30px;
+  }
+  .anim2 {
+    display: none;
+  }
+  .anim1 {
+    display: none;
+  }
+  .anim3 {
+    display: none;
+  }
+  .anim4 {
+    display: none;
+  }
+}
+@media (max-width: 340px) {
+  .calc_body {
+    width: 90vw;
+    padding: 4px;
+    height: 87vh;
+    /* border: var(--border); */
+  }
+  .display {
+    font-size: 25px;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(189, 160, 107, 0.548);
+  }
+  .oper_tor {
+    font-size: 23px;
+  }
+  button {
+    font-size: 20px;
+  }
+}
+@media (min-width: 750px) and (min-height: 1024px) {
+  #bck_change {
+    width: 40px;
+    height: 40px;
+    margin-top: 9px;
+  }
+  .calc_body {
+    width: 60vw;
+    padding: 4px;
+    height: 70vh;
+    /* border: var(--border); */
+  }
+  .display {
+    font-size: 40px;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(189, 160, 107, 0.548);
+  }
+  .oper_tor {
+    font-size: 35px;
+  }
+  .operator {
+    /* border: var(--border); */
+    height: 55vh;
+    justify-self: bottom;
+    margin-top: 15px;
+  }
+  button {
+    font-size: 30px;
+    width: 75px;
+    height: 75px;
+  }
+  #history {
+    width: 75px;
+    height: 75px;
+    font-size: 28px;
+  }
+}
+@media (min-width: 1024px) and (min-height: 1365px) {
+  button {
+    font-size: 40px;
+    width: 95px;
+    height: 95px;
+  }
+  #history {
+    width: 95px;
+    height: 95px;
+    font-size: 40px;
+  }
+  .operator {
+    row-gap: 1px;
+    margin-top: 50px;
+  }
+}
